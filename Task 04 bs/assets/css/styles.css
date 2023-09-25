@@ -1,0 +1,19 @@
+.text-heading {
+  top: 18%;
+  font-weight: 100;
+}
+
+.main-div {
+  width: 700px !important;
+}
+
+.text-heading-2 {
+  top: 10%;
+  font-weight: 100;
+}
+
+.card {
+  border-left: 1px solid rgba(0, 0, 0, 0.176) !important;
+  height: 500px;
+}
+
