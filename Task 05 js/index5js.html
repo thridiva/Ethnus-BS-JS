@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 05</title>
+    <style>
+      .text-Error {
+        display: inline;
+        color: red;
+        padding-left: 10px;
+      }
+
+      td:nth-child(odd) {
+        text-align: right;
+      }
+
+      input,
+      textarea {
+        border: 2px solid black;
+      }
+
+      .submit-button {
+        margin-left: 60px;
+      }
+
+      .textarea {
+        position: relative;
+      }
+
+      .textarea .text-Error {
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-div">
+      <form>
+        <table cellspacing="13px">
+          <tr>
+            <td>
+              <lable for="Name">Name:</lable>
+            </td>
+            <td>
+              <input name="Name" type="text" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <lable for="email address">Email:</lable>
+            </td>
+            <td>
+              <input name="email address" type="email" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <lable for="url">Website:</lable>
+            </td>
+            <td>
+              <input name="url" type="url" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <lable for="Message">Message:</lable>
+            </td>
+            <td class="textarea">
+              <textarea name="Message" rows="4" cols="24"></textarea>
+            </td>
+          </tr>
+        </table>
+        <button class="submit-button">Submit</button>
+      </form>
+    </div>
+    <script>
+      let inputs = [
+        ...document.querySelectorAll("input"),
+        ...document.querySelectorAll("textarea"),
+      ];
+
+      let submitButton = document.querySelector(".submit-button");
+
+      let show = function (message, currentLabel) {
+        let html = `
+          <p class="text-Error">${message} is required</p>
+      `;
+        currentLabel.insertAdjacentHTML("afterend", html);
+      };
+
+      let clearError = function (currentLabel) {
+        let errorMsg = currentLabel.nextElementSibling;
+
+        if (errorMsg) {
+          errorMsg.remove();
+        }
+      };
+
+      let checkFun = function (e) {
+        let allFilled = true;
+
+        inputs.forEach(function (currentLabel) {
+          clearError(currentLabel);
+
+          let name = currentLabel.name;
+          let isEmpty = currentLabel.value == "";
+
+          if (isEmpty) {
+            allFilled = false;
+            currentLabel.style.borderColor = "red";
+
+            let message =
+              name == "Name" || name == "Message"
+                ? `This field`
+                : `A valid ${name}`;
+
+            show(message, currentLabel);
+          } else {
+            currentLabel.style.borderColor = "black";
+          }
+        });
+
+        if (!allFilled) {
+          e.preventDefault();
+        }
+      };
+
+      submitButton.addEventListener("click", checkFun);
+    </script>
+  </body>
+</html>
