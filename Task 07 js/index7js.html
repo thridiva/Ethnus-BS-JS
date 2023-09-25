@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 07</title>
+    <style>
+      .main-div {
+        margin-top: 15px;
+        display: grid;
+        place-items: center;
+      }
+
+      .p-c {
+        font-size: xx-large;
+        color: rgb(0, 0, 179);
+      }
+
+      .button-div {
+        margin-top: 0;
+      }
+
+      button {
+        width: 59px;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-div">
+      <video class="v-c" src="train-railway.mp4" loop></video>
+      <p class="p-c">Click the following buttons to handle animation</p>
+      <div class="button-div">
+        <button class="start-click">Start</button>
+        <button class="stop-click">Stop</button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/freezeframe"></script>
+    <script>
+      let control = document.querySelector(".v-c");
+
+      let start = document.querySelector(".start-click");
+      let stop = document.querySelector(".stop-click");
+
+      let startFun = function () {
+        control.play();
+      };
+
+      let stopFun = function () {
+        control.pause();
+      };
+
+      start.addEventListener("click", startFun);
+      stop.addEventListener("click", stopFun);
+    </script>
+  </body>
+</html>
