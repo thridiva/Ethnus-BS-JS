@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 03</title>
+  </head>
+  <body style="background-color: blanchedalmond">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+      "
+    >
+      <center>
+        <div
+          style="
+            width: 500px;
+            border: 5px;
+            border-style: solid;
+            padding: 10px;
+            text-align: left;
+            padding-left: 70;
+            padding-right: 70px;
+          "
+        >
+          <label for="firstnum">1st Number:</label>
+          <input type="text" id="firstnum" />
+          <br /><br />
+          <label for="secondnum">2nd Number:</label>
+          <input type="text" id="secondnum" />
+          <br /><br />
+          <div style="text-align: center">
+            <button
+              style="
+                font-size: 20px;
+                background-color: darkgray;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+              "
+              onclick="multiply()"
+            >
+              Multiply
+            </button>
+            <button
+              style="
+                font-size: 20px;
+                background-color: darkgray;
+                padding-left: 7px;
+                padding-right: 7px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+              "
+              onclick="divide()"
+            >
+              Divide
+            </button>
+          </div>
+          <p id="result"></p>
+        </div>
+      </center>
+      <script>
+        function multiply() {
+          let firstNumVal = parseInt(document.getElementById("firstnum").value);
+          let secondNumVal = parseInt(
+            document.getElementById("secondnum").value
+          );
+          document.getElementById("result").innerHTML =
+            "The Result Is:" + firstNumVal * secondNumVal;
+        }
+
+        function divide() {
+          let firstNumVal = parseInt(document.getElementById("firstnum").value);
+          let secondNumVal = parseInt(
+            document.getElementById("secondnum").value
+          );
+          document.getElementById("result").innerHTML =
+            "The Result Is: " + firstNumVal / secondNumVal;
+        }
+      </script>
+    </div>
+  </body>
+</html>
