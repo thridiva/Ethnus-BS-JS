@@ -1,0 +1,16 @@
+.nav-item {
+  padding-left: 15px;
+}
+
+.second-nav .nav-item {
+  padding-right: 15px;
+}
+
+.first-nav {
+  padding-left: 10px;
+}
+
+.div-box {
+  background-color: #636162;
+}
+
